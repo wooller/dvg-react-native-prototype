@@ -5,13 +5,13 @@
  */
 
 import React, { Component } from 'react';
+import Button from 'react-native-button'
 import {
     AppRegistry,
     StyleSheet,
     Text,
     View,
-    Image,
-    Button
+    Image
 } from 'react-native';
 
 export default class digitalVisitorGuide extends Component {
@@ -22,7 +22,8 @@ export default class digitalVisitorGuide extends Component {
                     <Image style={styles.logo} source={require('./hcp_icon.png')} />
                     <Text style={styles.logoText}>Hampton Court Palace</Text>
                     <Text style={styles.textTitle}>A Journey of Discovery</Text>
-                    <Button style={styles.button} title="Show me where to start"/>
+                    <Button activeOpacity={1} style={styles.button}>Show me where to start</Button>
+                    <Button activeOpacity={1} style={styles.button}>Explore for myself</Button>
                 </View>
             </Image>
         );
@@ -84,7 +85,20 @@ const styles = StyleSheet.create({
         marginBottom: 50
     },
     button:{
-        color: 'black'
+        color: 'white',
+        backgroundColor: '#107aab',
+        width: 'auto',
+        fontWeight: 'normal',
+        paddingTop: 10,
+        paddingBottom: 10,
+        marginRight: 45,
+        marginLeft: 45,
+        marginTop: 35,
+        marginBottom: 25,
+        borderRadius: 5,
+        borderStyle: 'solid',
+        borderColor: 'white',
+        borderWidth: 1
     }
 });
 
