@@ -53,6 +53,8 @@
 		D0FDEA91E6FF4DCC9DEC3A86 /* OpenSans-ExtraboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B0AFBB6C647C4BFE75DC2 /* OpenSans-ExtraboldItalic.ttf */; };
 		031805F3BBE9492687086935 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4553BE84CCB4AB2BFBCE124 /* OpenSans.ttf */; };
 		DFDA3908EFAC4C75976433D1 /* OpenSansLight-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10D9045A84E248728A5724D9 /* OpenSansLight-Italic.ttf */; };
+		15D88940D09F487ABB3E304D /* FaraoText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C185D7B30685461580CF1CB6 /* FaraoText-Bold.ttf */; };
+		57FCE3FB75B4431D90EAEEC7 /* Bellefair-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6AA427558684A94A2FFBA30 /* Bellefair-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +292,8 @@
 		7A4B0AFBB6C647C4BFE75DC2 /* OpenSans-ExtraboldItalic.ttf */ = {isa = PBXFileReference; name = "OpenSans-ExtraboldItalic.ttf"; path = "../fonts/OpenSans-ExtraboldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C4553BE84CCB4AB2BFBCE124 /* OpenSans.ttf */ = {isa = PBXFileReference; name = "OpenSans.ttf"; path = "../fonts/OpenSans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		10D9045A84E248728A5724D9 /* OpenSansLight-Italic.ttf */ = {isa = PBXFileReference; name = "OpenSansLight-Italic.ttf"; path = "../fonts/OpenSansLight-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C185D7B30685461580CF1CB6 /* FaraoText-Bold.ttf */ = {isa = PBXFileReference; name = "FaraoText-Bold.ttf"; path = "../fonts/FaraoText-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A6AA427558684A94A2FFBA30 /* Bellefair-Regular.ttf */ = {isa = PBXFileReference; name = "Bellefair-Regular.ttf"; path = "../fonts/Bellefair-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +544,8 @@
 				7A4B0AFBB6C647C4BFE75DC2 /* OpenSans-ExtraboldItalic.ttf */,
 				C4553BE84CCB4AB2BFBCE124 /* OpenSans.ttf */,
 				10D9045A84E248728A5724D9 /* OpenSansLight-Italic.ttf */,
+				C185D7B30685461580CF1CB6 /* FaraoText-Bold.ttf */,
+				A6AA427558684A94A2FFBA30 /* Bellefair-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -921,6 +927,8 @@
 				D0FDEA91E6FF4DCC9DEC3A86 /* OpenSans-ExtraboldItalic.ttf in Resources */,
 				031805F3BBE9492687086935 /* OpenSans.ttf in Resources */,
 				DFDA3908EFAC4C75976433D1 /* OpenSansLight-Italic.ttf in Resources */,
+				15D88940D09F487ABB3E304D /* FaraoText-Bold.ttf in Resources */,
+				57FCE3FB75B4431D90EAEEC7 /* Bellefair-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
