@@ -20,6 +20,9 @@ import {
     ListItem
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
+import standardViews from './assets/content.json';
+
+
 class welcomeScreen extends React.Component {
     static navigationOptions = { headerStyle:{ position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 } };
     render() {
@@ -28,7 +31,7 @@ class welcomeScreen extends React.Component {
             <Image style={styles.image} source={require('./welcome_screen.jpg')}>
                 <View style={styles.backdropView}>
                     <Image style={styles.logo} source={require('./hcp_icon.png')} />
-                    <Text style={styles.logoText}>Tower of London</Text>
+                    <Text style={styles.logoText}>{standardViews.welcomeScreen.logoLabel}</Text>
                     <Text style={styles.textTitle}>Discover the stories that never got out</Text>
                     <Button activeOpacity={1} onPress={() =>
                         navigate('Explore')} style={styles.button}>Get Started</Button>
