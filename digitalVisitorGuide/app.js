@@ -24,7 +24,17 @@ import standardViews from './assets/content.json';
 
 
 class welcomeScreen extends React.Component {
-    static navigationOptions = { headerStyle:{ position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 } };
+    static navigationOptions = {
+        headerStyle:{
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            zIndex: 100,
+            top: 0,
+            left: 0,
+            right: 0
+        },
+        drawerLabel: 'Welcome'
+    };
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -42,7 +52,18 @@ class welcomeScreen extends React.Component {
 }
 
 export default class exploreScreen extends Component {
-    static navigationOptions = {headerTintColor: 'white', headerStyle:{ position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 } };
+    static navigationOptions = {
+        headerTintColor: 'white',
+        headerStyle:{
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            zIndex: 100,
+            top: 0,
+            left: 0,
+            right: 0
+        },
+        drawerLabel: 'Explore',
+    };
     renderItem({ item, index }) {
          return (
              <View style={styles.listItem}>
