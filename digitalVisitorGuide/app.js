@@ -17,29 +17,90 @@ import {
     View,
     Image,
     FlatList,
-    ListItem
+    ListItem,
+    TouchableHighlight,
+    console
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
+import standardViews from './assets/content.json';
+import Menu from './menu.js';
+
+const SideMenu = require('react-native-side-menu');
+
+class ToggleMenu extends React.Component {
+    render() {
+        return (
+            <View style={styles.menuIconView} >
+                <TouchableHighlight onPress={() => this.openMenu()} >
+                    <Image style={styles.menuIcon} source={require('./menu.png')} />
+                </TouchableHighlight>
+            </View>
+        )
+    }
+}
+
 class welcomeScreen extends React.Component {
-    static navigationOptions = { headerStyle:{ position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 } };
+    static navigationOptions = {
+        headerStyle:{
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            zIndex: 100,
+            top: 0,
+            left: 0,
+            right: 0
+        },
+        //headerRight: <ToggleMenu/> ,
+        drawerLabel: 'Welcome'
+    };
+
+    onMenuItemSelected = (item) => {
+        this.setState({
+            isOpen: false,
+        });
+
+        this.props.navigation.navigate(item);
+    }
+
     render() {
         const { navigate } = this.props.navigation;
+        const menu = <Menu navigator={navigator} onItemSelected={this.onMenuItemSelected.bind(this)}/>;
         return (
+        <SideMenu menu={menu} style={styles.sideMenu} menuPosition="right" bounceBackOnOverdraw={false}>
             <Image style={styles.image} source={require('./welcome_screen.jpg')}>
                 <View style={styles.backdropView}>
                     <Image style={styles.logo} source={require('./hcp_icon.png')} />
-                    <Text style={styles.logoText}>Tower of London</Text>
+                    <Text style={styles.logoText}>{standardViews.welcomeScreen.logoLabel}</Text>
                     <Text style={styles.textTitle}>Discover the stories that never got out</Text>
                     <Button activeOpacity={1} onPress={() =>
                         navigate('Explore')} style={styles.button}>Get Started</Button>
                 </View>
             </Image>
+        </SideMenu>
         );
     }
 }
 
 export default class exploreScreen extends Component {
-    static navigationOptions = {headerTintColor: 'white', headerStyle:{ position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 } };
+    static navigationOptions = {
+        headerTintColor: 'white',
+        headerStyle:{
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            zIndex: 100,
+            top: 0,
+            left: 0,
+            right: 0
+        },
+        drawerLabel: 'Explore',
+    };
+    onMenuItemSelected = (item) => {
+        this.setState({
+            isOpen: false,
+        });
+
+        //this.props.navigation.navigate(item);
+    }
+
     renderItem({ item, index }) {
          return (
              <View style={styles.listItem}>
@@ -52,56 +113,59 @@ export default class exploreScreen extends Component {
          );
     }
     render() {
+        const menu = <Menu navigator={navigator} onItemSelected={this.onMenuItemSelected.bind(this)}/>;
         return (
-            <View style={styles.exploreScreenView}>
-                <Text style={styles.exploreScreenText}>Explore the tower</Text>
-                <Text style={styles.exploreScreenSubtitle}>Scroll through the list below to view the routes</Text>
-                <FlatList
-                    data={[
-                        {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
-                        {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')}
-                    ]}
-                    renderItem={this.renderItem}
-                />
-            </View>
+            <SideMenu menu={menu} menuPosition="right">
+                <View style={styles.exploreScreenView}>
+                    <Text style={styles.exploreScreenText}>Explore the tower</Text>
+                    <Text style={styles.exploreScreenSubtitle}>Scroll through the list below to view the routes</Text>
+                    <FlatList
+                        data={[
+                            {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Crown Jewels", "routeDescription": "One of the unmissable highlights of a visit to the Tower of London ", "routeImage": require('./crownJewels.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "White Tower", "routeDescription": "Built by William the Conqueror, which today houses displays from the Royal Armouries collection.", "routeImage": require('./whiteTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Medieval Palace", "routeDescription": "Walk through the surprisingly rich colours and comfortable furnishings of the Medieval Palace", "routeImage": require('./medievalPalace.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Bloody Tower", "routeDescription": "Decide who murdered the Little Princes in the Bloody Tower ", "routeImage": require('./bloodyTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Beauchamp Tower", "routeDescription": "Discover the extraordinary prisoner graffiti in the Beauchamp Tower", "routeImage": require('./BeauchampTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Wakefield Tower", "routeDescription": "See instruments of torture in the Lower Wakefield Tower", "routeImage": require('./wakefieldTower.jpg')},
+                            {"routeID": "henry_apartments", "routeTitle": "Yeoman Warder", "routeDescription": "Join one of the famous Yeoman Warder tours and hear exciting tales from the Tower’s past ", "routeImage": require('./yeomanWarder.jpg')}
+                        ]}
+                        renderItem={this.renderItem}
+                    />
+                </View>
+            </SideMenu>
         );
     }
 }
@@ -117,6 +181,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
+    },
+    menuIconView:{
+      flex: 1,
+      marginRight: 25,
+      marginTop: 10
+    },
+    menuIcon:{
+      height: 30,
+      width: 30,
+      resizeMode: 'contain'
     },
     welcome: {
         fontSize: 20,
@@ -244,6 +318,9 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         paddingRight: 5,
         fontFamily: 'OpenSans-Light'
+    },
+    sideMenu:{
+        backgroundColor: 'blue'
     }
 });
 

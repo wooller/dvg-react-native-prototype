@@ -1,0 +1,279 @@
+{
+  "welcomeScreen": {
+    "logo": "/app/images/icons/hampton_court_palace.svg",
+    "logoLabel": "Tower of London",
+    "title": "A journey of discovery",
+    "showMeLabel": "Show me where to start",
+    "exploreLabel": "Explore for myself",
+    "separatorLabel": "Or",
+    "instructions": "Tap to begin TESTING"
+  },
+  "exploreScreen": {
+    "title": "Explore The Palace",
+    "subTitleTextView": "DELETED ",
+    "subTitleImageView": "DELETED"
+  },
+  "narrative": {
+    "container_height": 410,
+    "shadow_height": 455,
+    "title": "Choose your narrative style",
+    "drama": {
+      "icon": "assets/common/icons/narrative/drama_BLACK.svg",
+      "img": "assets/common/icons/narrative/Dramatised Tour_Blue with Circle.svg",
+      "title": "Dramatised Tour",
+      "detail": "Tour with Thomas, one of Henry's courtiers, who can tell you about life at the palaces.",
+      "id": "expert"
+    },
+    "expert": {
+      "icon": "assets/common/icons/narrative/education_BLACK.svg",
+      "img": "assets/common/icons/narrative/Expert Led Tour_Blue with Circle.svg",
+      "title": "Expert Led Tour",
+      "detail": "Tour the palace with our resident experts and historians.",
+      "id": "expert"
+    },
+    "family": {
+      "icon": "assets/common/icons/narrative/person_BLACK.svg",
+      "img": "assets/common/icons/narrative/Family Tour_Blue with Circle.svg",
+      "title": "Family Tour",
+      "detail": "Easy and fun tour for children aged 12 & under.",
+      "id": "family"
+    }
+  },
+  "directions": {
+    "title": "Get Directions",
+    "subtitle": "How to explore the palace",
+    "selectLocationText": "Select your starting location",
+    "selectDestinationText": "Select your destination",
+    "startTourText": "Start Audio Tour",
+    "selectLocationLabel": "From",
+    "selectDestinationLabel": "To"
+  },
+  "photospherePopup": {
+    "startRouteText": "I’m here, start route",
+    "getDirectionsText": "or get directions"
+  },
+  "journey": {
+    "title": "DELETED",
+    "play": "Play all:",
+    "total_audio": "Total audio time:",
+    "total_height": 80
+  },
+  "primary_menu": {
+    "explore": "Explore",
+    "exploreIcon": "assets/common/images/icons/menu/New_Icon_Explore_Black_with_Circle_v2.svg",
+    "programme": "Daily Programme",
+    "programmeIcon": "assets/common/images/icons/menu/Plan_Your_Day_Blue_with_Circle.svg",
+    "food": "Food & Drink (1049 test)",
+    "foodIcon": "assets/common/images/icons/menu/Food_and_Drink_Blue_with_Circle.svg",
+    "shop": "Shops",
+    "shopIcon": "assets/common/images/icons/menu/New_Icon_Explore_Black_with_Circle_REN_2.svg",
+    "settings": "Settings",
+    "settingsIcon": "assets/common/images/icons/menu/New_Icon_Explore_Black_with_Circle_v2.svg"
+  },
+  "map_menu": {
+    "explore": "Explore",
+    "food": "Food & Drink",
+    "shop": "Shop",
+    "toilets": "Toilets"
+  },
+  "guide": {
+    "title": "How to use <br/>this visitor guide",
+    "instructions": "Swipe to begin and <br/> move through this tutorial",
+    "gesture": "Gesture Controls",
+    "tap": "Tap to select",
+    "pinch": "Pinch to zoom",
+    "device": "Device Controls",
+    "volume": "Volume Control",
+    "volume_instr": "Use these buttons to control how <br /> high or low you would like the <br /> volume to be.",
+    "menu": "Menu Icon",
+    "menu_instr": "Use the menu icon in the right <br /> hand corner to explore <br /> different features.",
+    "map": "Palace Map",
+    "map_instr": "Use the palace map in the right hand <br /> corner to explore the different <br /> routes, shops and cafes.",
+    "got_it": "OK, got it!",
+    "no_thanks": "No, thanks"
+  },
+  "cards": {
+    "swipe_back": "Swipe down to bring the cards back",
+    "show_route": "Show on route",
+    "swipe_cards": "Swipe cards"
+  },
+  "end_of_tour": {
+    "completed": "100% Completed",
+    "completed_text": "You have reached the end of",
+    "continue": "Continue with",
+    "exploreAlt": "Explore alternative routes"
+  },
+  "feedback": {
+    "no_thanks": "No, thanks",
+    "title": "Rate your experience with the digital visitor guide",
+    "submit": "Submit",
+    "thanks": "Thank you for your feedback",
+    "registered": "Your feedback has been registered",
+    "return": "Return to guide",
+    "questionTotalPrefix": "Question",
+    "questionTotalSeparator": "of",
+    "feedbackQuestions": [
+      {
+        "id": "7186",
+        "question": "How would you rate your experience of using this digital visitor guide today?"
+      },
+      {
+        "id": "7187",
+        "question": "How would you rate the ease of navigating your way around the palace using this guide? "
+      },
+      {
+        "id": "7363",
+        "question": "Charlie Question 1"
+      },
+      {
+        "id": "7364",
+        "question": "Charlie Question 2"
+      },
+      {
+        "id": "7365",
+        "question": "Charlie Question 3"
+      },
+      {
+        "id": "7366",
+        "question": "Charlie Question 4"
+      },
+      {
+        "id": "7367",
+        "question": "Charlie Question 5"
+      }
+    ],
+    "registeredText": "Your feedback has been received",
+    "thankYouText": "Thank you",
+    "returnText": "Done",
+    "submitButtonText": "Continue",
+    "questionSeparator": "of",
+    "questionPrefix": "Question"
+  },
+  "settings": {
+    "title": "Settings",
+    "languageHeading": "Choose your language:",
+    "languages": {
+      "english": {
+        "title": "English"
+      },
+      "german": {
+        "title": "Deutsche"
+      },
+      "dutch": {
+        "title": "Nederlands"
+      },
+      "french": {
+        "title": "Français"
+      },
+      "italian": {
+        "title": "Italiano"
+      },
+      "japanese": {
+        "title": "日本語"
+      },
+      "korean": {
+        "title": "한국어"
+      },
+      "russian": {
+        "title": "русский"
+      },
+      "spanish": {
+        "title": "Español"
+      }
+    },
+    "userGuideHeading": "How to use this visitor guide",
+    "resetHeading": "Reset <span class='resetStaff'>(HRP staff only)</span>",
+    "updateHeading": "Update device <span class='resetStaff'>(HRP staff only)</span>"
+  },
+  "giftShops": {
+    "title": "Shops"
+  },
+  "foodDrink": {
+    "title": "Food and Drink Places"
+  },
+  "visuallyImpaired": {
+    "exploreScreen": {
+      "exploreScreenTitle": "Explore the palace (Dev test)"
+    },
+    "helpScreen": {
+      "helpScreenTitle": "How to use this app (Dev Test)",
+      "audioInstructionsText": "Audio instructions (Dev Test)",
+      "audioInstructionsAudio": "assets/common/visually_impaired/helpAudio/e104.mp3"
+    }
+  },
+  "dailyProgramme": {
+    "title": "Daily Programmes",
+    "firstTab": {
+      "title": "Family"
+    },
+    "secondTab": {
+      "title": "Highlights"
+    },
+    "thirdTab": {
+      "title": "Live shows"
+    }
+  },
+  "userguide": {
+    "backLabel": "Back",
+    "buttonLabel": "Got it",
+    "closeLabel": "Close",
+    "directionsLabel": "Directions",
+    "helpLabel": "Help",
+    "menuLabel": "Menu",
+    "pages": {
+      "welcome": {
+        "guidedTour": "Start a guided tour from Base Court",
+        "explore": "Explore the palace for yourself"
+      },
+      "exploreView": {
+        "listMessage": "Scroll through the list of places of interest and select a route to explore the palace",
+        "photosphereMessage": "Drag the image to explore this court yard and tap an icon to begin a tour",
+        "popUpMessageExplore": "Start this route or return to the courtyard to explore other places of interest",
+        "popUpRouteClose": "Close",
+        "popUpPhotoClose": "Close"
+      },
+      "narrative": {
+        "narrativeMessage": "Tap on one of the options to select your preferred audio narrative style"
+      },
+      "primaryMenu": {
+        "primaryMessage": "Access different areas of this visitor guide"
+      },
+      "dailyProgramme": {
+        "DailyProgrammeMessage": "Discover activities and palace wonders based on your interests",
+        "dailyProgrammePopUp": "Navigate back to discover other activities and palace wonders"
+      },
+      "foodDrink": {
+        "foodDrinkMessage": "Discover places to eat and drink around the palace",
+        "foodAndDrinkPopUp": "Navigate back to discover other places to eat and drink around the palace"
+      },
+      "giftShop": {
+        "giftShopMessage": "Discover gift shops around the palace",
+        "giftShopPopUpMessage": "Navigate back to discover other gift shops around the palace"
+      },
+      "settings": {
+        "SettingsMessage": "Tap to select or change your language",
+        "warning": "WARNING: For staff use only"
+      },
+      "mainDirectionsView": {
+        "directionsMessage": "Select your starting location and your destination to see step by step directions. Then start your tour."
+      },
+      "journey": {
+        "audioDuration": "This shows the audio time",
+        "audioDurationTime": "00:00",
+        "completed": "This shows when an audio track has been completed",
+        "noAudioText": "This shows if there is no audio track",
+        "playAllText": "Play all tracks in order"
+      },
+      "audioTrack": {
+        "audioTrack": "Hold and drag to scrub through the audio track",
+        "audioTrackTime": "00:00",
+        "basicTrack": "Please ask a warder for more information",
+        "completedRoute": "Visit our recommended route or explore other places of interest around the palace",
+        "next": "Next",
+        "noAudio": "No audio",
+        "playPause": "Play/Pause",
+        "previous": "Previous"
+      }
+    }
+  }
+}
